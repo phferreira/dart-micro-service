@@ -4,17 +4,18 @@ class Connection {
   PostgreSQLConnection _connection;
 
   static Future<Connection> connect() async {
-    int _port = 4321;
+    int _port = 5432;
     // String _host = env['DB_HOST'];
     // String _user = env['DB_USER'];
     // String _pass = env['DB_PASS'];
     // String _name = env['DB_NAME'];
-    String _host = 'localhost';
+    String _host = '172.18.0.2';
     String _user = 'postgres';
     String _pass = '123456';
     String _name = 'dados';
 
     Connection connection = Connection();
+    print(_host);
     connection._connection = PostgreSQLConnection(_host, _port, _name, username: _user, password: _pass);
     await connection._connection.open();
     return connection;
